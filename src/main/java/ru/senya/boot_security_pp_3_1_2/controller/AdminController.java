@@ -46,16 +46,12 @@ public class AdminController {
 
     @PostMapping(value = "/save")
     public String saveUserPos(@ModelAttribute("user") User user) {
-        Role userRole = roleService.findByNameRole("ROLE_USER");
-        user.setRoles(Set.of(userRole));
         userService.saveUser(user);
         return "redirect:/admin";
     }
 
     @PostMapping(value = "/update")
     public String updateUserPos(@ModelAttribute("user") User user) {
-        User ex = userService.findUserByID(user.getId());
-        user.setRoles(ex.getRoles());
         userService.updateUser(user);
         return "redirect:/admin";
     }

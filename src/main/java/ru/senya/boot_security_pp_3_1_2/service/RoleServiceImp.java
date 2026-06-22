@@ -3,7 +3,6 @@ package ru.senya.boot_security_pp_3_1_2.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.senya.boot_security_pp_3_1_2.dao.RoleDao;
-import ru.senya.boot_security_pp_3_1_2.dao.RoleDaoImp;
 import ru.senya.boot_security_pp_3_1_2.model.Role;
 
 @Service

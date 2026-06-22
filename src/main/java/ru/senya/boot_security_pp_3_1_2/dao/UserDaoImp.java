@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Repository;
 import ru.senya.boot_security_pp_3_1_2.model.User;
 
@@ -24,15 +25,17 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public User findUserByID(Long id) {
-        User user = entityManager.find(User.class,id);
+        User user = entityManager.find(User.class, id);
         return user;
     }
 
     @Override
-    public  User findByUsername (String username){
+    public User findByUsername(String username) {
         try {
             return entityManager.createQuery(
-                            "from User u where u.username = :username", User.class)
+                            "select u from User u " +
+                                    "left join fetch u.roles " +
+                                    "where u.username = :username", User.class)
                     .setParameter("username", username)
                     .getSingleResult();
         } catch (NoResultException e) {
@@ -50,8 +53,9 @@ public class UserDaoImp implements UserDao {
         entityManager.merge(user);
 
     }
+
     @Override
     public void deleteUser(Long id) {
-        entityManager.remove(entityManager.find(User.class,id));
+        entityManager.remove(entityManager.find(User.class, id));
     }
 }

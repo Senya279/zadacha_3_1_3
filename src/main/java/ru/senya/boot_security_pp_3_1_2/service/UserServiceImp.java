@@ -7,19 +7,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.senya.boot_security_pp_3_1_2.dao.UserDao;
+import ru.senya.boot_security_pp_3_1_2.model.Role;
 import ru.senya.boot_security_pp_3_1_2.model.User;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserServiceImp implements UserService, UserDetailsService {
 
     private final PasswordEncoder passwordEncoder;
     private final UserDao userDao;
+    private final RoleService roleService;
 
-    public UserServiceImp(UserDao userDao, PasswordEncoder passwordEncoder) {
-        this.userDao = userDao;
+    public UserServiceImp(PasswordEncoder passwordEncoder, UserDao userDao, RoleService roleService) {
         this.passwordEncoder = passwordEncoder;
+        this.userDao = userDao;
+        this.roleService = roleService;
     }
 
     @Transactional(readOnly = true)
@@ -53,6 +57,10 @@ public class UserServiceImp implements UserService, UserDetailsService {
     @Transactional
     @Override
     public void saveUser(User user) {
+        if (user.getRoles() == null || user.getRoles().isEmpty()) {
+            Role userRole = roleService.findByNameRole("ROLE_USER");
+            user.setRoles(Set.of(userRole));
+        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDao.saveUser(user);
     }
@@ -60,6 +68,8 @@ public class UserServiceImp implements UserService, UserDetailsService {
     @Transactional
     @Override
     public void updateUser(User user) {
+        User existing = userDao.findUserByID(user.getId());
+        user.setRoles(existing.getRoles());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDao.updateUser(user);
     }
