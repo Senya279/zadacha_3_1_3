@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.senya.boot_security_pp_3_1_2.model.Role;
 import ru.senya.boot_security_pp_3_1_2.model.User;
 import ru.senya.boot_security_pp_3_1_2.service.RoleService;
 import ru.senya.boot_security_pp_3_1_2.service.UserService;
@@ -19,10 +18,8 @@ import java.util.Set;
 public class AdminController {
 
     private final UserService userService;
-    private final RoleService roleService;
 
-    public AdminController(RoleService roleService, UserService userService) {
-        this.roleService = roleService;
+    public AdminController(UserService userService) {
         this.userService = userService;
     }
 

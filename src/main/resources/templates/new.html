@@ -13,22 +13,22 @@
 <form th:action="@{/admin/save}" th:object="${user}" method="post">
 
     <label>Name:</label>
-    <input type="text" th:field="*{name}"/>
+    <input type="text" th:field="*{name}" required/>
 
     <label>Surname:</label>
-    <input type="text" th:field="*{surname}"/>
+    <input type="text" th:field="*{surname}" required/>
 
     <label>Age:</label>
-    <input type="number" th:field="*{age}"/>
+    <input type="number" th:field="*{age}" required min = "1"/>
 
     <label>Profession:</label>
-    <input type="text" th:field="*{profession}"/>
+    <input type="text" th:field="*{profession}" required/>
 
     <label>Username:</label>
-    <input type="text" th:field="*{username}"/>
+    <input type="text" th:field="*{username}" required/>
 
     <label>Password:</label>
-    <input type="password" th:field="*{password}"/>
+    <input type="password" th:field="*{password}" required/>
 
     <button type="submit">Save</button>
 </form>

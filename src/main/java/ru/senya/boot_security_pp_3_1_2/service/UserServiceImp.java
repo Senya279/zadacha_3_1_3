@@ -70,7 +70,13 @@ public class UserServiceImp implements UserService, UserDetailsService {
     public void updateUser(User user) {
         User existing = userDao.findUserByID(user.getId());
         user.setRoles(existing.getRoles());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        if (user.getPassword().isEmpty()
+                || user.getPassword().equals(existing.getPassword())) {
+            user.setPassword(existing.getPassword());
+
+        } else {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
         userDao.updateUser(user);
     }
 
