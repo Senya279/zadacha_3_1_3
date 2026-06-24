@@ -1,4 +1,4 @@
-package ru.senya.boot_security_pp_3_1_2;
+package ru.senya.bootstrap_zadacha_pp_3_1_3;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

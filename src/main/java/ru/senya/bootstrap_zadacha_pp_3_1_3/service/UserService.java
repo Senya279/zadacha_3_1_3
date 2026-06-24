@@ -1,6 +1,6 @@
-package ru.senya.boot_security_pp_3_1_2.service;
+package ru.senya.bootstrap_zadacha_pp_3_1_3.service;
 
-import ru.senya.boot_security_pp_3_1_2.model.User;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.model.User;
 
 import java.util.List;
 

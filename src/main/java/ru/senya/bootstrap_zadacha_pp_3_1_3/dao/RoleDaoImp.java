@@ -1,7 +1,7 @@
-package ru.senya.boot_security_pp_3_1_2.dao;
+package ru.senya.bootstrap_zadacha_pp_3_1_3.dao;
 
 import org.springframework.stereotype.Repository;
-import ru.senya.boot_security_pp_3_1_2.model.Role;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.model.Role;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;

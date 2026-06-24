@@ -1,4 +1,4 @@
-package ru.senya.boot_security_pp_3_1_2.dao;
+package ru.senya.bootstrap_zadacha_pp_3_1_3.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -6,7 +6,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
-import ru.senya.boot_security_pp_3_1_2.model.User;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.model.User;
 
 import java.util.List;
 

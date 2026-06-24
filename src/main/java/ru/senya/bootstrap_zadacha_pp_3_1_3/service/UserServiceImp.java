@@ -1,4 +1,4 @@
-package ru.senya.boot_security_pp_3_1_2.service;
+package ru.senya.bootstrap_zadacha_pp_3_1_3.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -6,9 +6,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.senya.boot_security_pp_3_1_2.dao.UserDao;
-import ru.senya.boot_security_pp_3_1_2.model.Role;
-import ru.senya.boot_security_pp_3_1_2.model.User;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.dao.UserDao;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.model.Role;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.model.User;
 
 import java.util.List;
 import java.util.Set;

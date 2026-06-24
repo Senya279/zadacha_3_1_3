@@ -1,9 +1,9 @@
-package ru.senya.boot_security_pp_3_1_2.controller;
+package ru.senya.bootstrap_zadacha_pp_3_1_3.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.senya.boot_security_pp_3_1_2.service.UserService;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.service.UserService;
 
 import java.security.Principal;
 

@@ -1,10 +1,10 @@
-package ru.senya.boot_security_pp_3_1_2.configs;
+package ru.senya.bootstrap_zadacha_pp_3_1_3.configs;
 
 import org.springframework.stereotype.Component;
-import ru.senya.boot_security_pp_3_1_2.model.Role;
-import ru.senya.boot_security_pp_3_1_2.model.User;
-import ru.senya.boot_security_pp_3_1_2.service.RoleService;
-import ru.senya.boot_security_pp_3_1_2.service.UserService;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.model.Role;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.model.User;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.service.RoleService;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.service.UserService;
 
 import javax.annotation.PostConstruct;
 import java.util.Set;

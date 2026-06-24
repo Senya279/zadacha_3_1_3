@@ -1,4 +1,4 @@
-package ru.senya.boot_security_pp_3_1_2.controller;
+package ru.senya.bootstrap_zadacha_pp_3_1_3.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,11 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.senya.boot_security_pp_3_1_2.model.User;
-import ru.senya.boot_security_pp_3_1_2.service.RoleService;
-import ru.senya.boot_security_pp_3_1_2.service.UserService;
-
-import java.util.Set;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.model.User;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.service.UserService;
 
 @Controller
 @RequestMapping("/admin")

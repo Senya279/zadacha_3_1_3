@@ -1,4 +1,4 @@
-package ru.senya.boot_security_pp_3_1_2.configs;
+package ru.senya.bootstrap_zadacha_pp_3_1_3.configs;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import ru.senya.boot_security_pp_3_1_2.service.UserServiceImp;
+import ru.senya.bootstrap_zadacha_pp_3_1_3.service.UserServiceImp;
 
 @Configuration
 @EnableWebSecurity

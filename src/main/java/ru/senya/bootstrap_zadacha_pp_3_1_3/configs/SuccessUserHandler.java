@@ -1,4 +1,4 @@
-package ru.senya.boot_security_pp_3_1_2.configs;
+package ru.senya.bootstrap_zadacha_pp_3_1_3.configs;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
