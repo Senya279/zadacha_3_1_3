@@ -2,9 +2,9 @@ package ru.senya.bootstrap_zadacha_pp_3_1_3.dao;
 
 import org.springframework.stereotype.Repository;
 import ru.senya.bootstrap_zadacha_pp_3_1_3.model.Role;
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.PersistenceContext;
 
 @Repository
 public class RoleDaoImp implements RoleDao {

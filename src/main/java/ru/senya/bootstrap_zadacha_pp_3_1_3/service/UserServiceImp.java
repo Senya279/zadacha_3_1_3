@@ -40,18 +40,18 @@ public class UserServiceImp implements UserService, UserDetailsService {
 
     @Transactional(readOnly = true)
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userDao.findByUsername(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userDao.findByEmail(email);
         if (user == null) {
-            throw new UsernameNotFoundException("Пользователь не найден: " + username);
+            throw new UsernameNotFoundException("Пользователь не найден: " + email);
         }
         return user;
     }
 
     @Transactional(readOnly = true)
     @Override
-    public User findByUsername (String username){
-        return userDao.findByUsername(username);
+    public User findByEmail (String email){
+        return userDao.findByEmail(email);
     }
 
     @Transactional

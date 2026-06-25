@@ -6,7 +6,7 @@ import ru.senya.bootstrap_zadacha_pp_3_1_3.model.User;
 import ru.senya.bootstrap_zadacha_pp_3_1_3.service.RoleService;
 import ru.senya.bootstrap_zadacha_pp_3_1_3.service.UserService;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.util.Set;
 
 @Component
@@ -33,8 +33,7 @@ public class DataInitializer {
         admin.setName("Bob");
         admin.setSurname("Bobos");
         admin.setAge(32);
-        admin.setProfession("Security");
-        admin.setUsername("admin");
+        admin.setEmail("admin@mail.ru");
         admin.setPassword("admin");
         admin.setRoles(Set.of(adminRole,userRole));
         userService.saveUser(admin);
@@ -44,8 +43,7 @@ public class DataInitializer {
         users.setName("Goga");
         users.setSurname("Gogach");
         users.setAge(19);
-        users.setProfession("Student");
-        users.setUsername("user");
+        users.setEmail("user@mail.ru");
         users.setPassword("user");
         users.setRoles(Set.of(userRole));
         userService.saveUser(users);

@@ -2,18 +2,17 @@ package ru.senya.bootstrap_zadacha_pp_3_1_3.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -37,11 +36,8 @@ public class User implements UserDetails {
     @Column(name = "age")
     private int age;
 
-    @Column(name = "profession")
-    private String profession;
-
-    @Column(name = "username")
-    private String username;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "password")
     private String password;
@@ -57,12 +53,11 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String name, String surname, int age, String profession,String username,Set<Role> roles) {
+    public User(String name, String surname, int age,String email,Set<Role> roles) {
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.profession = profession;
-        this.username = username;
+        this.email = email;
         this.roles = roles;
     }
     @Override
@@ -126,14 +121,6 @@ public class User implements UserDetails {
         this.age = age;
     }
 
-    public String getProfession() {
-        return profession;
-    }
-
-    public void setProfession(String profession) {
-        this.profession = profession;
-    }
-
     public Set<Role> getRoles() {
         return roles;
     }
@@ -144,11 +131,13 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getEmail() {return email;}
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -158,8 +147,7 @@ public class User implements UserDetails {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
-                ", profession='" + profession + '\'' +
-                ", username='" + username + '\'' +
+                ", username='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
                 '}';

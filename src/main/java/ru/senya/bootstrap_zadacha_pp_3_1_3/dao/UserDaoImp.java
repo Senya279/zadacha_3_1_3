@@ -1,10 +1,9 @@
 package ru.senya.bootstrap_zadacha_pp_3_1_3.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import ru.senya.bootstrap_zadacha_pp_3_1_3.model.User;
 
@@ -30,13 +29,13 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public User findByUsername(String username) {
+    public User findByEmail(String email) {
         try {
             return entityManager.createQuery(
                             "select u from User u " +
                                     "left join fetch u.roles " +
-                                    "where u.username = :username", User.class)
-                    .setParameter("username", username)
+                                    "where u.email = :email", User.class)
+                    .setParameter("email", email)
                     .getSingleResult();
         } catch (NoResultException e) {
             return null; // обрабатываю исключение если не найден по логину юзер нужно добавить в сервисе так же обработку этого null!!
