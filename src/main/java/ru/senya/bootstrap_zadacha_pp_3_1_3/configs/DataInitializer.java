@@ -36,7 +36,7 @@ public class DataInitializer {
         admin.setEmail("admin@mail.ru");
         admin.setPassword("admin");
         admin.setRoles(Set.of(adminRole,userRole));
-        userService.saveUser(admin);
+        userService.saveUser(admin,null);
 
 
         User users = new User();
@@ -46,6 +46,6 @@ public class DataInitializer {
         users.setEmail("user@mail.ru");
         users.setPassword("user");
         users.setRoles(Set.of(userRole));
-        userService.saveUser(users);
+        userService.saveUser(users,null);
     }
 }

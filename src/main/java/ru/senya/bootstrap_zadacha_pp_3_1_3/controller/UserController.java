@@ -20,9 +20,8 @@ public class UserController {
 
     @GetMapping("/user")
     public String userPage(Principal principal, Model model) {
-        String email = principal.getName();
+        String email = principal.getName();//getName() возвращает username, а у нас username = email
         model.addAttribute("user", userService.findByEmail(email));
         return "user";
-
     }
 }

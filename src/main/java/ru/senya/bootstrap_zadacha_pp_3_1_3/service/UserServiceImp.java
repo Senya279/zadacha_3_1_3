@@ -10,6 +10,7 @@ import ru.senya.bootstrap_zadacha_pp_3_1_3.dao.UserDao;
 import ru.senya.bootstrap_zadacha_pp_3_1_3.model.Role;
 import ru.senya.bootstrap_zadacha_pp_3_1_3.model.User;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -50,16 +51,19 @@ public class UserServiceImp implements UserService, UserDetailsService {
 
     @Transactional(readOnly = true)
     @Override
-    public User findByEmail (String email){
+    public User findByEmail(String email) {
         return userDao.findByEmail(email);
     }
 
     @Transactional
     @Override
-    public void saveUser(User user) {
-        if (user.getRoles() == null || user.getRoles().isEmpty()) {
-            Role userRole = roleService.findByNameRole("ROLE_USER");
-            user.setRoles(Set.of(userRole));
+    public void saveUser(User user, List<Long> rolesId) {
+        if (rolesId != null && !rolesId.isEmpty()) {
+            Set<Role> roles = new HashSet<>();
+            for (Long id : rolesId) {
+                roles.add(roleService.findRoleById(id));
+            }
+            user.setRoles(roles);
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDao.saveUser(user);
@@ -67,9 +71,13 @@ public class UserServiceImp implements UserService, UserDetailsService {
 
     @Transactional
     @Override
-    public void updateUser(User user) {
+    public void updateUser(User user, List<Long> rolesId) {
         User existing = userDao.findUserByID(user.getId());
-        user.setRoles(existing.getRoles());
+        Set<Role> roles = new HashSet<>();
+        for (Long id : rolesId){
+            roles.add(roleService.findRoleById(id));
+        }
+        user.setRoles(roles);
         if (user.getPassword().isEmpty()
                 || user.getPassword().equals(existing.getPassword())) {
             user.setPassword(existing.getPassword());

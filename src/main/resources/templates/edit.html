@@ -26,6 +26,15 @@
     <label>Email:</label>
     <input type="text" th:field="*{email}"/>
 
+    <label>Roles:</label>
+    <select name="rolesId" multiple>
+        <option th:each="role : ${roles}"
+                th:value="${role.id}"
+                th:text="${role.name}"
+                th:selected="${user.roles.contains(role)}">
+        </option>
+        </select>
+
     <label>Password:</label>
     <input type="password" th:field="*{password}"/>
 

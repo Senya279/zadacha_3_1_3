@@ -9,12 +9,12 @@ public interface UserService {
 
     User findUserByID(Long id);
 
-    void saveUser(User user);
+    void saveUser(User user, List<Long> rolesId);
 
-    void updateUser(User user);
+    void updateUser(User user, List<Long> rolesId);
 
     void deleteUser(Long id);
 
-    User findByEmail (String email);
+    User findByEmail(String email);
 
 }

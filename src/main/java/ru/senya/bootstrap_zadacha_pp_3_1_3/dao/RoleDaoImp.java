@@ -1,10 +1,13 @@
 package ru.senya.bootstrap_zadacha_pp_3_1_3.dao;
 
+import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import ru.senya.bootstrap_zadacha_pp_3_1_3.model.Role;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
+
+import java.util.List;
 
 @Repository
 public class RoleDaoImp implements RoleDao {
@@ -16,6 +19,18 @@ public class RoleDaoImp implements RoleDao {
     @Override
     public void saveRole(Role role){
         entityManager.persist(role);
+    }
+
+    @Override
+    public List <Role> getAllRoles() {
+        TypedQuery<Role> query = entityManager.createQuery("from Role ", Role.class);
+        return List.copyOf(query.getResultList());
+    }
+
+    @Override
+    public Role findRoleById(Long id){
+        Role role = entityManager.find(Role.class,id);
+        return role;
     }
 
     @Override

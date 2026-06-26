@@ -16,6 +16,7 @@
         <th>surname</th>
         <th>age</th>
         <th>email</th>
+        <th>role</th>
 
     </tr>
     <tr>
@@ -23,6 +24,9 @@
         <td th:text="${user.surname}"></td>
         <td th:text="${user.age}"></td>
         <td th:text="${user.email}"></td>
+        <td>
+            <span th:each="role : ${user.roles}" th:text="${role.name + ' '}"></span>
+        </td>
     </tr>
 </table>
 
