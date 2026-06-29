@@ -33,20 +33,6 @@ public class AdminController {
         return "index";
     }
 
-    @GetMapping(value = "/edit")
-    public String idUserMetod(@RequestParam(value = "id") Long id, Model model) {
-        model.addAttribute("user", userService.findUserByID(id));
-        model.addAttribute("roles", roleService.getAllRoles());
-        return "edit";
-    }
-
-    @GetMapping(value = "/new")
-    public String saveUserMetod(Model model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("roles", roleService.getAllRoles());
-        return "new";
-    }
-
     @PostMapping(value = "/save")
     public String saveUserPos(@ModelAttribute("user") User user,
                               @RequestParam(value = "rolesId") List<Long> rolesId) {
