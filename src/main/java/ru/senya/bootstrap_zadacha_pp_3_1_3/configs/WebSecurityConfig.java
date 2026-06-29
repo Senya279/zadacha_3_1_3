@@ -33,7 +33,10 @@ public class WebSecurityConfig {
                         .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                         .anyRequest().authenticated())
                 .formLogin(
-                        form -> form.successHandler(successUserHandler).permitAll())
+                        form -> form
+                                .loginPage("/login")
+                                .successHandler(successUserHandler)
+                                .permitAll())
                 .logout(log -> log
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login")
