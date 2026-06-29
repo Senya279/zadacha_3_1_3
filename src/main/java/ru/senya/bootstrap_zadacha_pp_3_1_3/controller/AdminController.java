@@ -28,6 +28,8 @@ public class AdminController {
     @GetMapping(value = "")
     public String listUserMetod(Model model) {
         model.addAttribute("users", userService.listUsers());
+        model.addAttribute("roles", roleService.getAllRoles());
+        model.addAttribute("newUser",new User());
         return "index";
     }
 
